@@ -1,0 +1,11 @@
+--------------------
+ iot2040安装nodered,启动node-red后，安装通过npm 命令安装watson npm_moudles，
+在bluemix添加watson服务在iot基于nodejs的app上，在watson创建设备类型，添加设备并且设备识别号，通过在iot2040获取serial number,具体代码在西门子论坛的iot2040板块中，在bluemix的nodered上，调用“bimiot”（注与watson节点不一致，但是可以用来接收来自Watson IoT Platform的数据，），通过msg.payload提供内在字符串消息，有，msg.deviceId,msg.applicationId,msg.deviceType,msg.eventType,以及msg.format的值当format以json形式存储，那么可以通过JSON.parse()输出;如果以"buffer"形式存储，可以直接输出;对于余下的数据类型以字符串类型输出; 
+类如取出传输信息中温度的数值可以通过"return {payload:msg.payload.d.temp}"(与传输时的格式一致)，在通过判断节点得到危险与安全的数值，危险的数据后，在连接一个"push"节点，
+关于push节点，由于此次在bluemix服务上使用，因此需要在“Push Notification”设备，在firebase中创建应用，填写android客户端的包名，并将firebase的应用id以及密钥填写到push notification中，在服务凭证中会有appde GUID信息，以及clientSercret，将两条信息填写到android project中，并在下载在firebase中的.json文件。这样整个系统的框架就搭建完成，运行android 程序，点击注册，成功则返回注册成功，可以在push 服务中输入文本信息进行验证，在iot2040(本例的地址为192.168.1.105)点击发送按钮，可以在bluemix平台的watson 服务中可以观察到接收到的温湿度信息以及经纬度，同时在手机客户端，当温度信息大于门限值时，会调用push 节点将危险信息push 到android 客户端上
+----------------------------------------
+
+
+--------------------------
+实现ubuntu 的全局代理功能
+-----------------------
